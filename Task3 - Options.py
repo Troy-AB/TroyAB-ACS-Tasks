@@ -1,13 +1,11 @@
-valid_option = False
-while valid_option == False:
-    print("Please enter your choice")
-    option = input()
+option_valid = False
+while option_valid == False:
+    option = int(input("enter your choice"))
 
-    if option == 1 or option == 2 or option == 3:
-        valid_option = True
-        print("You have selected option number ", option)
+    if option >= 1 or option <= 3:
+        print("You have entered a correct option")
+        option_valid = True
     else:
-        print("You have entered an invalid option")
+        print("you have entered an invalid option")
     #endif
 #endwhile
-
