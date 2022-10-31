@@ -1,3 +1,5 @@
-time = input("Please enter the time in the format H:M:S")
-timepieces = time.split(":")
-total_seconds = int(timepieces(0))*3600 + int(timepieces(1))*1060 + int(timepieces(2))
+input_time = input("Please enter the time in the format H:M:S   ")
+timepieces = input_time.split(":")
+print(timepieces)
+total_seconds = int(timepieces[0])*3600 + int(timepieces[1])*60 + int(timepieces[2])
+print(total_seconds)
