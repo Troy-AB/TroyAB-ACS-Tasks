@@ -12,7 +12,7 @@ YELLOW = (255,165,0)
 pygame.init()
 
 # -- Blank Screen
-size = (720,720)
+size = (640,480)
 screen = pygame.display.set_mode(size)
 
 # -- Title of new window/screen
@@ -28,7 +28,7 @@ clock = pygame.time.Clock()
 ### -- Game Loop
 
 x_coordinate = 0
-y_coordinate = 540
+y_coordinate = 0
 i = 0
 
 while not done:
@@ -46,19 +46,19 @@ while not done:
     
     # -- Draw here
     
-    #pygame.draw.rect(screen, BLUE, (x_coordinate,y_coordinate,200,150))
-    pygame.draw.circle(screen, YELLOW, (x_coordinate,y_coordinate),50,0)
-        #sun((x,y),circle_width, infill)
+    pygame.draw.rect(screen, BLUE, (220,165,200,150))
+    pygame.draw.circle(screen, YELLOW, (x_coordinate,int(((3/1280)*(x_coordinate - 320)**2 ))), 50, 0)
+        #sun((x,y),circle_width, infill) 
 
-    x_coordinate += 5
-    y_coordinate += 3
-    i += 10
+        # y = 1/1280(x-320)^2
 
-    if y_coordinate > 720:
-        y_coordinate = 0
+    x_coordinate += 1
 
-    if x_coordinate > 720:
+    if x_coordinate > 640:
         x_coordinate = 0
+        
+    
+
 
 
     # -- flip display to reveal new position of objects
