@@ -57,14 +57,15 @@ while not done:
         #End If
     #Next event
 
-        if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_UP:
-                    y_pos_padd -= 5
-                #endwhile
+    keys = pygame.key.get_pressed()
+    if keys[pygame.K_UP] and y_pos_padd > 0:
+        y_pos_padd -= 5
+    #endif
 
-                if event.key == pygame.K_DOWN:
-                    y_pos_padd += 5
-                #endwhile
+    if keys[pygame.K_DOWN] and y_pos_padd < 420:
+        y_pos_padd += 5
+        
+    #endif
 
 
 
