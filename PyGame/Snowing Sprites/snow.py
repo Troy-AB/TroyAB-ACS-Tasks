@@ -9,7 +9,7 @@ class snow(pygame.sprite.Sprite):
     #define the constructor for Snow
     def __init__(self, color, width, height, speed):
         #set the speed
-        self.speed = random.randrange(speed,speed + 3)
+        self.speed = random.randrange(speed,speed + 2)
         #call the sprite constructor
         super().__init__()
         #create the sprite and fill it with the color
@@ -22,6 +22,7 @@ class snow(pygame.sprite.Sprite):
     #class snow update
     def update(self):
         self.rect.y = self.rect.y + self.speed
+        
         #reset snow position
         if self.rect.y == 480:
             self.rect.y = 0

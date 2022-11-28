@@ -46,7 +46,7 @@ while not done:
     
     # -- Draw here
     
-    pygame.draw.rect(screen, BLUE, (220,165,200,150))
+    pygame.draw.rect(screen, BLUE, (220,350,200,150))
     pygame.draw.circle(screen, YELLOW, (x_coordinate,int(((3/1280)*(x_coordinate - 320)**2 ))), 50, 0)
         #sun((x,y),circle_width, infill) 
 
