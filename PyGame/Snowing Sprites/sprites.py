@@ -9,7 +9,7 @@ class snow(pygame.sprite.Sprite):
     #define the constructor for Snow
     def __init__(self, color, width, height, speed):
         #set the speed
-        self.speed = speed
+        self.speed = random.randrange(speed,speed + 3)
         #call the sprite constructor
         super().__init__()
         #create the sprite and fill it with the color
@@ -24,7 +24,8 @@ class snow(pygame.sprite.Sprite):
         self.rect.y = self.rect.y + self.speed
         #reset snow position
         if self.rect.y == 480:
-            self.rect.y = random.randrange(0, -5)
+            self.rect.y = 0
+            self.rect.x = random.randrange(0, 640)
     
 
     #endprocedure
@@ -56,9 +57,9 @@ snow_group = pygame.sprite.Group()
 all_sprites_group = pygame.sprite.Group()
 
 #create snowflakes
-number_of_flakes = 50
+number_of_flakes = 100
 for x in range (number_of_flakes):
-    my_snow = snow(WHITE, 5, 5, 1)
+    my_snow = snow(WHITE, 3, 3, 1)
     snow_group.add(my_snow)
     all_sprites_group.add(my_snow)
 #endfor
