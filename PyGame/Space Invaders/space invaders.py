@@ -4,9 +4,9 @@ import math
 
 # Global Constants
 
-#create Sprite class
-class snow(pygame.sprite.Sprite):
-    #define the constructor for Snow
+#create invader class
+class invader(pygame.sprite.Sprite):
+    #define the constructor for invader
     def __init__(self, color, width, height, speed):
         #set the speed
         self.speed = random.randrange(speed,speed + 2)
@@ -19,11 +19,30 @@ class snow(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.x = random.randrange(0, 600)
         self.rect.y = random.randrange(0, 400)
-    #class snow update
+    #class invader update
+    def update(self):
+        self.rect.y = self.rect.y + self.speed
+
+        #create invader class
+class invader(pygame.sprite.Sprite):
+    #define the constructor for invader
+    def __init__(self, color, width, height, speed):
+        #set the speed
+        self.speed = random.randrange(speed,speed + 2)
+        #call the sprite constructor
+        super().__init__()
+        #create the sprite and fill it with the color
+        self.image = pygame.Surface([width, height])
+        self.image.fill(color)
+        #set the position of the sprite
+        self.rect = self.image.get_rect()
+        self.rect.x = random.randrange(0, 600)
+        self.rect.y = random.randrange(0, 400)
+    #class invader update
     def update(self):
         self.rect.y = self.rect.y + self.speed
         
-        #reset snow position
+        #reset invader position
         if self.rect.y == 480:
             self.rect.y = 0
             self.rect.x = random.randrange(0, 640)
@@ -46,23 +65,23 @@ size = (640,480)
 screen = pygame.display.set_mode(size)
 
 # Title of new window/screen
-pygame.display.set_caption("Snow")
+pygame.display.set_caption("invader")
 
 # Exit game flag set to false
 done = False
 
-#create a list of hte snow blocks
-snow_group = pygame.sprite.Group()
+#create a list of hte invader blocks
+invader_group = pygame.sprite.Group()
 
 #create a list of all sprites
 all_sprites_group = pygame.sprite.Group()
 
-#create snowflakes
+#create invaderflakes
 number_of_flakes = 100
 for x in range (number_of_flakes):
-    my_snow = snow(WHITE, 3, 3, 1)
-    snow_group.add(my_snow)
-    all_sprites_group.add(my_snow)
+    my_invader = invader(WHITE, 3, 3, 1)
+    invader_group.add(my_invader)
+    all_sprites_group.add(my_invader)
 #endfor
 
 # Manages how fast screen refreshes
@@ -88,7 +107,7 @@ while not done:
     # Draw here
     all_sprites_group.draw(screen)
 
-    #snow class update
+    #invader class update
     all_sprites_group.update()
     
     # flip display to reveal new position of objects
