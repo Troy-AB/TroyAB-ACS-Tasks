@@ -23,26 +23,24 @@ class invader(pygame.sprite.Sprite):
     def update(self):
         self.rect.y = self.rect.y + self.speed
 
-        #create invader class
-class invader(pygame.sprite.Sprite):
-    #define the constructor for invader
-    def __init__(self, color, width, height, speed):
+#create player class
+class player(pygame.sprite.Sprite):
+    #define the constructor for player
+    def __init__(self, color, width, height):
         #set the speed
-        self.speed = random.randrange(speed,speed + 2)
+        self.speed = 0
         #call the sprite constructor
         super().__init__()
         #create the sprite and fill it with the color
         self.image = pygame.Surface([width, height])
         self.image.fill(color)
         #set the position of the sprite
-        self.rect = self.image.get_rect()
-        self.rect.x = random.randrange(0, 600)
-        self.rect.y = random.randrange(0, 400)
-    #class invader update
+        self.rect = (320, 240)
+    #class player update
     def update(self):
         self.rect.y = self.rect.y + self.speed
         
-        #reset invader position
+        #reset player position
         if self.rect.y == 480:
             self.rect.y = 0
             self.rect.x = random.randrange(0, 640)
@@ -56,6 +54,7 @@ BLACK = (0,0,0)
 WHITE = (255,255,255)
 BLUE = (50,50,255)
 YELLOW = (255,255,0)
+PURPLE = (255,0,255)
 
 # Initialise PyGame
 pygame.init()
@@ -70,19 +69,25 @@ pygame.display.set_caption("invader")
 # Exit game flag set to false
 done = False
 
-#create a list of hte invader blocks
+#create a list of the invader blocks
 invader_group = pygame.sprite.Group()
 
 #create a list of all sprites
 all_sprites_group = pygame.sprite.Group()
 
-#create invaderflakes
-number_of_flakes = 100
-for x in range (number_of_flakes):
-    my_invader = invader(WHITE, 3, 3, 1)
+#create invaderS
+number_of_invaders = 10
+for x in range (number_of_invaders):
+    my_invader = invader(PURPLE, 10, 10, 1)
     invader_group.add(my_invader)
     all_sprites_group.add(my_invader)
 #endfor
+
+#create the player
+my_player = player(YELLOW, 10, 10)
+all_sprites_group.add(my_player)
+
+
 
 # Manages how fast screen refreshes
 clock = pygame.time.Clock()

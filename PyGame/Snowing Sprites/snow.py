@@ -10,7 +10,7 @@ class snow(pygame.sprite.Sprite):
     def __init__(self, color, width, height, speed):
         #set the speed
         self.speed = random.randrange(speed,speed + 2)
-        #call the sprite constructor
+        #call the sprite constructors
         super().__init__()
         #create the sprite and fill it with the color
         self.image = pygame.Surface([width, height])
