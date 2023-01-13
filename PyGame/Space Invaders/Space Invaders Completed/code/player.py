@@ -6,7 +6,7 @@ class Player(pygame.sprite.Sprite):
         #inherits data from pygame.sprite.Sprite
 
         super().__init__()
-        self.image = pygame.image.load('D:\Documents\GitHub\TroyAB-ACS-Tasks\PyGame\Space Invaders\Space Invaders Completed\graphics\player.png').convert_alpha()
+        self.image = pygame.image.load('graphics/player.png').convert_alpha()
         self.rect  = self.image.get_rect(midbottom = pos)
         self.speed = speed
         self.max_x_constraint = constraint
